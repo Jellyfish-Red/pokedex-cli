@@ -10,7 +10,7 @@ func main() {
 	fmt.Println("Pokedex CLI")
 	fmt.Println("===========")
 
-	commands := pokedexcli.getCommands()
+	commands := commands.getCommands()
 
 	for {
 		// Prepare initial CLI input vector
