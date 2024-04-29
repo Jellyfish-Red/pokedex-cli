@@ -1,4 +1,4 @@
-package pokedexcli
+package commands
 
 import (
 	"fmt"
