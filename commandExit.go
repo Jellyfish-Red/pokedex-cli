@@ -5,7 +5,7 @@ import (
 	"os"
 )
 
-func commandExit() error {
+func commandExit(config *Config) error {
 	fmt.Println("Closing CLI.")
 	os.Exit(0)
 	return nil

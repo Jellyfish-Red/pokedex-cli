@@ -5,9 +5,16 @@ import (
 	"fmt"
 	"os"
 	"strings"
+
+	"github.com/jellyfish-red/pokedex-cli/internal/pokeapi"
 )
 
 func startRepl() {
+	client := pokeapi.APIClient{}
+	config := &Config {
+		Client: client,
+	}
+
 	commands := getCommands()
 	input := bufio.NewScanner(os.Stdin)
 
@@ -29,7 +36,7 @@ func startRepl() {
 		// data := words[1:]
 		
 		if command, ok := commands[name]; ok {
-			err := command.callback()
+			err := command.callback(config)
 			if err != nil {
 				fmt.Println(err)
 			}

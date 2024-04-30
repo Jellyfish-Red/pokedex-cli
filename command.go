@@ -1,38 +1,40 @@
 package main
 
+import "github.com/jellyfish-red/pokedex-cli/internal/pokeapi"
+
 type Command struct {
 	name string
 	description string
-	callback func() error
-	// callback func(*Config) error
+	callback func(*Config) error
 }
 
-// type Config struct {
-// 	Next string
-// 	Previous string
-// }
+type Config struct {
+	Client pokeapi.APIClient
+	Next *string
+	Previous *string
+}
 
 func getCommands() map[string]Command {
 	return map[string]Command {
 		"help": {
 			name: "help",
-			description: "Provides commands usable in this CLI program.",
-			callback: commandHelp,//(&c),
+			description: "Provides commands usable in this program.",
+			callback: commandHelp,
 		},
 		"exit": {
 			name: "exit",
 			description: "Close this CLI program.",
-			callback: commandExit,//(&c),
+			callback: commandExit,
 		},
 		"map": {
 			name: "map",
-			description: "",
-			callback: commandMap,//(&c),
+			description: "Show the next page of locations.",
+			callback: commandMap,
 		},
 		"mapb": {
 			name: "mapb",
-			description: "",
-			callback: commandMapb,//(&c),
+			description: "Show the previous page of locations.",
+			callback: commandMapb,
 		},
 	}
 }
