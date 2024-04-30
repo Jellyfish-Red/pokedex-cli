@@ -10,7 +10,7 @@ func commandMapb(config *Config) error {
 		return errors.New("user is already on the first page")
 	}
 
-	locations, err := config.Client.requestArea(config.Previous)
+	locations, err := config.Client.RequestArea(config.Previous)
 	if err != nil {
 		return err
 	}

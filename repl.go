@@ -5,12 +5,13 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	"time"
 
 	"github.com/jellyfish-red/pokedex-cli/internal/pokeapi"
 )
 
 func startRepl() {
-	client := pokeapi.APIClient{}
+	client := pokeapi.NewClient(5 * time.Second)
 	config := &Config {
 		Client: client,
 	}

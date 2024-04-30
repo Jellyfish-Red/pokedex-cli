@@ -5,7 +5,7 @@ import (
 )
 
 func commandMap(config *Config) error {
-	locations, err := config.Client.requestArea(config.Next)
+	locations, err := config.Client.RequestArea(config.Next)
 	if err != nil {
 		return err
 	}
